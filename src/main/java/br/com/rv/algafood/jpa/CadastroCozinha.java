@@ -26,7 +26,13 @@ public class CadastroCozinha {
 	}
 	
 	@Transactional
-	public Cozinha adicionar(Cozinha cozinha) {
+	public Cozinha salvar(Cozinha cozinha) {
 		return manager.merge(cozinha);
 	}
+	
+	@Transactional
+	public void remover(Cozinha cozinha) {
+		cozinha = buscar(cozinha.getId());//incluo esta linha para transformar o stado do bean de transient para managed (a busca transforma o stado para instancia gerenciada)
+		manager.remove(cozinha);
+	}	
 }
