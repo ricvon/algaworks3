@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import br.com.rv.algafood.domain.model.Cozinha;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Component
 public class CadastroCozinha {
@@ -18,5 +19,14 @@ public class CadastroCozinha {
 //		return query.getResultList();
 		return manager.createQuery("from Cozinha", Cozinha.class)
 				.getResultList();		
+	}
+	
+	public Cozinha buscar(Long id) {
+		return manager.find(Cozinha.class, id);
+	}
+	
+	@Transactional
+	public Cozinha adicionar(Cozinha cozinha) {
+		return manager.merge(cozinha);
 	}
 }
