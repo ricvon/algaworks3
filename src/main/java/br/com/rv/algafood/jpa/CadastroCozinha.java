@@ -32,7 +32,7 @@ public class CadastroCozinha {
 	
 	@Transactional
 	public void remover(Cozinha cozinha) {
-		cozinha = buscar(cozinha.getId());//incluo esta linha para transformar o stado do bean de transient para managed (a busca transforma o stado para instancia gerenciada)
+		cozinha = buscar(cozinha.getId());//incluo esta linha para transformar o stado do bean de transient para managed, onde a busca transforma o estado para managed da instancia gerenciada pelo contexto de persistencia
 		manager.remove(cozinha);
 	}	
 }
