@@ -17,6 +17,11 @@ public class Cozinha {
 	private Long id;
 	
 	private String nome;
+	
+	public Cozinha() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getId() {
 		return id;
@@ -50,5 +55,6 @@ public class Cozinha {
 		Cozinha other = (Cozinha) obj;
 		return Objects.equals(id, other.id);
 	}
-		
+	
+	
 }
